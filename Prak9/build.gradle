@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.example.Main'
+    }
+}
+
+tasks.register('buildJar', Jar) {
+    manifest {
+        attributes 'Main-Class': 'org.example.Main'
+    }
+    from sourceSets.main.output
+    archiveBaseName.set('app')
+    archiveVersion.set('0.1.0')
+    archiveClassifier.set('')
+}
+
+tasks.register('buildDockerImage', Exec) {
+    dependsOn buildJar
+    commandLine 'docker', 'build', '-t', 'my-app:latest', '.'
+}
+
+tasks.register('runDockerContainer', Exec) {
+    dependsOn buildDockerImage
+    commandLine 'docker', 'run', '--rm', 'my-app:latest'
+}
+
+
