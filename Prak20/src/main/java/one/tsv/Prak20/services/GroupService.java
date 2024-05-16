@@ -20,8 +20,6 @@ public class GroupService {
         this.repository = repository;
     }
 
-    private static final Logger log = LoggerFactory.getLogger(GroupService.class);
-
     public List<Group> getAllGroups() {
         log.info("Get all groups");
         return repository.getAllBy().orElseThrow();

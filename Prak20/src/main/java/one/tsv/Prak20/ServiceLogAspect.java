@@ -1,8 +1,6 @@
 package one.tsv.Prak20;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -14,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 @org.aspectj.lang.annotation.Aspect
 public class ServiceLogAspect {
-    private static final Logger log = LoggerFactory.getLogger(ServiceLogAspect.class);
     @Before("allServiceMethods()")
     public void logParameters(JoinPoint joinPoint) {
         log.info("Parameters: {}", joinPoint.getArgs());
