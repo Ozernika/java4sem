@@ -1,0 +1,10 @@
+{
+    "id": 3,
+    "firstName": "Avdalyan",
+    "lastName": "Ellen",
+    "middleName": "Arturovna",
+    "group": {
+        "id": 1,
+        "groupName": "IKBO-30-22"
+    }
+}

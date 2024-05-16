@@ -24,8 +24,7 @@ public class StudentController {
         int lenBefore = students.size();
         students.add(student);
         if (students.size() != lenBefore)
-            return student;
-        else
+            return student;  else
             return null;
     }
 
@@ -39,8 +38,7 @@ public class StudentController {
                         .toList()
         );
         if (students.size() != lenBefore)
-            return student;
-        else
+            return student;  else
             return null;
     }
 }

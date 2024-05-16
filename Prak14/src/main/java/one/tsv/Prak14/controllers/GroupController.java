@@ -24,8 +24,7 @@ public class GroupController {
         int lenBefore = groups.size();
         groups.add(group);
         if (groups.size() != lenBefore)
-            return group;
-        else
+            return group; else
             return null;
     }
 
@@ -39,8 +38,7 @@ public class GroupController {
                         .toList()
         );
         if (groups.size() != lenBefore)
-            return group;
-        else
+            return group; else
             return null;
     }
 }

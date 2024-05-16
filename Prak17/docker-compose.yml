@@ -1,0 +1,12 @@
+services:
+  postgres_db:
+    image: postgres:16.2-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_db3:/var/lib/postgresql/data
+volumes:
+  postgres_db3:
